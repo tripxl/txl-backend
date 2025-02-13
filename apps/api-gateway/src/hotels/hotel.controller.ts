@@ -1,6 +1,5 @@
 import { Controller, Get, Inject, OnModuleInit, Req, UseGuards } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
-import { AuthGuard } from 'apps/api-gateway/src/common/guards/auth.guard';
 import { Observable, firstValueFrom } from 'rxjs';
 
 interface HotelsService {

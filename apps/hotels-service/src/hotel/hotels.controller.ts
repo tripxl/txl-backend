@@ -1,7 +1,6 @@
 import { Controller, Get, UseGuards, Request } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { HotelsService } from './hotels.service';
-import { AuthGuard } from 'apps/hotels-service/src/common/guards/auth.guard';
 
 
 @Controller()
