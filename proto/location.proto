@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package location;
+
+service LocationService {
+  rpc GetAllCities (Empty) returns (CityList);
+  rpc GetAllCountries (Empty) returns (CountryList);
+  rpc GetAllStates (Empty) returns (StateList);
+  rpc GetAllDestinations (Empty) returns (DestinationList);
+  rpc GetAllContinents (Empty) returns (ContinentList);
+}
+
+message Empty {}
+
+message CityList {
+  repeated City cities = 1;
+}
+
+message CountryList {
+  repeated Country countries = 1;
+}
+
+message StateList {
+  repeated State states = 1;
+}
+
+message DestinationList {
+  repeated Destination destinations = 1;
+}
+
+message ContinentList {
+  repeated Continent continents = 1;
+}
+
+message City {
+  string id = 1;
+  string name = 2;
+  CountryReference country = 3;
+  StateReference state = 4;
+}
+
+message Country {
+  string id = 1;
+  string name = 2;
+  string isDomestic = 3;
+}
+
+message State {
+  string id = 1;
+  string name = 2;
+  CountryReference country = 3;
+}
+
+message Destination {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message Continent {
+  string id = 1;
+  string name = 2;
+}
+
+message CountryReference {
+  string id = 1;
+  string name = 2;
+}
+
+message StateReference {
+  string id = 1;
+  string name = 2;
+}
