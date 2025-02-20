@@ -24,7 +24,8 @@ dotenv.config()
                 },
               },
             ]),
-        MongooseModule.forRoot(process.env.MONGO_URI),
+        // MongooseModule.forRoot(process.env.MONGO_URI),
+        MongooseModule.forRoot(process.env.HOTEL_DB_URI),
         HotelsModule
     ],
 })

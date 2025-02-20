@@ -8,9 +8,10 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-      // ✅ Ensure MongoDB Connection is established
-      MongooseModule.forRoot(process.env.MONGO_URI, {
-      }),
+    // ✅ Ensure MongoDB Connection is established
+    
+    // MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.AUTH_DB_URI),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
   ],
   controllers: [AuthController],
