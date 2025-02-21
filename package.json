@@ -17,6 +17,7 @@
     "start:auth-service": "nest start auth-service ",
     "start:location-service": "nest start location-service",
     "start:hotels-service": "nest start hotels-service",
+    "start:scheduler-service": "nest start scheduler-service",
     "start:all": "concurrently \"npm run start api-gateway\" \"npm run start location-service\" \"npm run start auth-service\"",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/api-gateway/main",

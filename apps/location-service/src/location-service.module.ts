@@ -13,7 +13,8 @@ dotenv.config()
     ConfigModule.forRoot({
       isGlobal: true
     }),
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    // MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.LOCATION_DB_URI),
     LocationModule, CitiesModule],
 })
 export class LocationServiceModule { }
