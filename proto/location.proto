@@ -4,13 +4,72 @@ package location;
 
 service LocationService {
   rpc GetAllCities (Empty) returns (CityList);
+  rpc GetCityById (CityRequest) returns (CityResponse);
+  
   rpc GetAllCountries (Empty) returns (CountryList);
+  rpc GetCountryById (CountryRequest) returns (CountryResponse);
+  
   rpc GetAllStates (Empty) returns (StateList);
+  rpc GetStateById (StateRequest) returns (StateResponse);
+  
   rpc GetAllDestinations (Empty) returns (DestinationList);
+  rpc GetDestinationById (DestinationRequest) returns (DestinationResponse);
+  
   rpc GetAllContinents (Empty) returns (ContinentList);
+  rpc GetContinentById (ContinentRequest) returns (ContinentResponse);
 }
 
 message Empty {}
+
+message CityRequest {
+  string id = 1;
+}
+
+message CityResponse {
+  string id = 1;
+  string name = 2;
+  CountryReference country = 3;
+  StateReference state = 4;
+}
+
+message CountryRequest {
+  string id = 1;
+}
+
+message CountryResponse {
+  string id = 1;
+  string name = 2;
+  string isDomestic = 3;
+}
+
+message StateRequest {
+  string id = 1;
+}
+
+message StateResponse {
+  string id = 1;
+  string name = 2;
+  CountryReference country = 3;
+}
+
+message DestinationRequest {
+  string id = 1;
+}
+
+message DestinationResponse {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message ContinentRequest {
+  string id = 1;
+}
+
+message ContinentResponse {
+  string id = 1;
+  string name = 2;
+}
 
 message CityList {
   repeated City cities = 1;

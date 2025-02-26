@@ -8,7 +8,13 @@ export class CountriesController {
 
   @GrpcMethod('LocationService', 'GetAllCountries')
   getAllCountries() {
-    console.log("✅ LocationService: GetAllCountries called");
+    console.log('✅ LocationService: GetAllCountries called');
     return this.countriesService.getAllCountries();
+  }
+
+  @GrpcMethod('LocationService', 'GetCountryById')
+  async getCountryById(data: { id: string }) {
+    console.log(`✅ CountriesService: Fetching country with ID: ${data.id}`);
+    return this.countriesService.getCountryById(data.id);
   }
 }

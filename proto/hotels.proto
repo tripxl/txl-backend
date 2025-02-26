@@ -4,17 +4,33 @@ package hotels;
 
 service HotelsService {
   rpc GetAllHotels (Empty) returns (HotelList);
+  rpc FindOne (HotelRequest) returns (HotelResponse);
 }
 
 message Empty {}
 
-message Hotel {
+message HotelRequest {
+  string id = 1;
+}
+
+message HotelResponse {
   string id = 1;
   string name = 2;
-  string city = 3;
-  string country = 4;
+  CityResponse city = 3;
+  CountryResponse country = 4;
 }
 
 message HotelList {
-  repeated Hotel hotels = 1;
+  repeated HotelResponse hotels = 1;
+}
+
+message CityResponse {
+  string id = 1;
+  string name = 2;
+}
+
+message CountryResponse {
+  string id = 1;
+  string name = 2;
+  string isDomestic = 3;
 }

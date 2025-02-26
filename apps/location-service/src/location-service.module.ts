@@ -5,16 +5,20 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
+import { CountriesModule } from './location/countries/countries.module';
 
-dotenv.config()
+dotenv.config();
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     // MongooseModule.forRoot(process.env.MONGO_URI),
     MongooseModule.forRoot(process.env.LOCATION_DB_URI),
-    LocationModule, CitiesModule],
+    LocationModule,
+    CitiesModule,
+    CountriesModule,
+  ],
 })
-export class LocationServiceModule { }
+export class LocationServiceModule {}
